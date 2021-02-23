@@ -1,0 +1,51 @@
+
+
+<!-- despues del else, se dirige a una referencia local "noHayHeroes" dentro de un tag "template" -->
+<div *ngIf="this.heroes.length>0 else noHayHeroes">
+    <p>Listado de Heroes Activos</p>
+    <ul>
+        <li *ngFor="let heroe of this.heroes; let i = index;">
+            {{i}} - {{heroe}}
+        </li>
+    </ul>
+    <button (click)="this.borrarHeroe()">
+        borrar Heroe
+    </button>
+</div>
+
+<!-- #noHayHeroes es una referencia local -->
+<ng-template #noHayHeroes>
+    <h3>
+        No hay Heroes Activos
+    </h3>
+</ng-template>
+
+<div *ngIf="this.heroesBorrados.length>0 else noHayHeroesVacaciones">
+    <p>Heroes en vacaciones</p>
+    <ul>
+        <li *ngFor="let heroe of this.heroesBorrados; let i = index;">
+            {{i}} - {{heroe}}
+        </li>
+    </ul>
+    <button (click)="this.reingresarHeroe()">
+        REINGRESAR Heroe
+    </button>
+</div>
+
+<ng-template #noHayHeroesVacaciones>
+    <h3>
+        No hay Heroes de Vacaciones...
+    </h3>
+</ng-template>
+
+
+
+<!--
+<div>
+    <h4>Heroe seleccionado recientemente con el botton:  </h4>
+    <span>
+        {{this.heroeSeleccionadoDelBoton}} 
+    </span>
+</div>-->
+
+
